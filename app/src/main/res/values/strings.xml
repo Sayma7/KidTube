@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Kid Tube</string>
+    <string name="txtSearch">Search</string>
+    <string name="tvMyFavourites">My Favourites</string>
+    <string name="tvSearch">Search</string>
+    <string name="tvHomeBtn">Home</string>
+    <string name="tvFvrts">My Favourites</string>
+    <string name="tvKidTube">Kid Tube</string>
+    <string name="tvFragStories">Stories</string>
+    <string name="tvFragRhymes">Rhymes</string>
+    <string name="tvFragMath">Maths</string>
+    <string name="tvFragAlphabets">Alphabets</string>
+    <string name="tvFragCartoons">Cartoons</string>
+    <string name="tvFragScience">Science</string>
+    <string name="noInternetMsg">No in</string>
+    <string name="tvVideoName">Kids</string>
+    <string name="tvChannelName">Channel Kids</string>
+    <string name="tvCurrentTime">2:31</string>
+    <string name="tvTotalTime">5:40</string>
+    <string name="tvTotalTIme">5:52</string>
+    <string name="play_list_thumbnail">Play-list thumbnail</string>
+    <string name="video_thumbnail">Video Thumbnail</string>
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black_54_percent"
+        android:gravity="center">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/red_soothing"
+            android:gravity="center"
+            android:elevation="8dp"
+            android:layout_margin="8dp"
+            android:padding="4dp"
+            tools:ignore="UnusedAttribute">
+            <TextView
+                android:id="@+id/tvMyFavourites"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:padding="8dp"
+                android:text="@string/tvMyFavourites"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
+        </android.support.v7.widget.Toolbar>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="50dp"
+            android:padding="4dp">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:background="@color/light_ash"
+                android:baselineAligned="false">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="4dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+
+                        android:layout_gravity="center"
+                        android:src="@drawable/home_btn"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvHomeBtn"
+                        android:textColor="@color/black_75_percent"
+                        android:text="@string/tvHomeBtn"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="4dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/search"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvSearch"
+                        android:textColor="@color/black_75_percent"
+                        android:text="@string/tvSearch"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:padding="4dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/favourites"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/tvFvrts"
+                        android:textColor="@color/black_75_percent"
+                        android:text="@string/tvFvrts"
+                        android:layout_gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+    </FrameLayout>
+</ScrollView>

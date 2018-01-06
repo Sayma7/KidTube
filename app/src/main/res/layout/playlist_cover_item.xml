@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="@dimen/playlist_item_width"
+    android:layout_height="@dimen/cover_pager_height"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/ivThumbPlaylist"
+        android:layout_width="@dimen/playlist_item_width"
+        android:layout_height="@dimen/cover_pager_height"
+        android:contentDescription="@string/play_list_thumbnail"
+        android:scaleType="centerCrop"
+        android:src="@drawable/home_btn" />
+
+    <TextView
+        android:id="@+id/tvNamePlaylist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/black_54_percent"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingEnd="16dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="24sp" />
+
+</FrameLayout>
