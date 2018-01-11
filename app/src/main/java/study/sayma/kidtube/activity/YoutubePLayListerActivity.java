@@ -1,8 +1,10 @@
 package study.sayma.kidtube.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -10,7 +12,10 @@ import android.support.v4.view.LinkagePager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.google.android.youtube.player.YouTubePlayer;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -25,15 +30,19 @@ import study.sayma.kidtube.fragments.CoverFragment;
 import study.sayma.kidtube.fragments.VideoListFragment;
 import study.sayma.kidtube.interfaces.ApiCallback;
 import study.sayma.kidtube.models.PlayListItem;
+import study.sayma.kidtube.services.FloatingPlayerService;
 import study.sayma.kidtube.utils.P;
 import study.sayma.kidtube.utils.U;
 
+import static study.sayma.kidtube.activity.MainActivity.API_KEY;
 
 public class YoutubePLayListerActivity extends AppCompatActivity {
 
     public static final String PL_DATA = "_playlist";
+    public static final String API_KEY = "AIzaSyA0Ob1g4gfL7bSi6ui2j0v5oJU5QqWcGZY";
     private static final String TAG = YoutubePLayListerActivity.class.getSimpleName();
     private View pbLoader;
+    private PlayListItem plList;
 
     private CoverPagerAdapter coverAdapter;
     private MyListPagerAdapter listPagerAdapter;
@@ -77,6 +86,7 @@ public class YoutubePLayListerActivity extends AppCompatActivity {
             toast(message);
         }
     };
+
     private LinkagePagerContainer customPagerContainer;
     private LinkagePager pager;
     private AppBarLayout appBarLayout;
@@ -92,7 +102,6 @@ public class YoutubePLayListerActivity extends AppCompatActivity {
 
         pbLoader = findViewById(R.id.pbLoader);
         pbLoader.setVisibility(View.GONE);
-
         setupPagers();
 
         if (U.isNetConnected(this)) {
@@ -100,6 +109,21 @@ public class YoutubePLayListerActivity extends AppCompatActivity {
             new FileGetter(listLoader).execute();
         } else
             toast("No internet connection");
+
+        addControls();
+    }
+    private void addControls(){
+
+        ImageView btnSearch = findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(v -> {
+            Intent intent = new Intent(YoutubePLayListerActivity.this, MainActivity.class) ;
+            startActivity(intent);
+        });
+
+        FloatingActionButton fabPlayAll = findViewById(R.id.fabPlayAll);
+        fabPlayAll.setOnClickListener((View v) -> {
+
+        });
     }
 
     private void setupPagers() {
@@ -109,26 +133,17 @@ public class YoutubePLayListerActivity extends AppCompatActivity {
 
         Log.d("###", "parallaxHeight:" + parallaxHeight);
         appBarLayout = findViewById(R.id.appbar);
-
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                // Log.d("###","verticalOffset: " + Math.abs(verticalOffset));
-                if (Math.abs(verticalOffset) >= parallaxHeight) {
-                    tab.setVisibility(View.VISIBLE);
-                } else {
-                    tab.setVisibility(View.GONE);
-                }
+        appBarLayout.addOnOffsetChangedListener((appBarLayout, verticalOffset) -> {
+            // Log.d("###","verticalOffset: " + Math.abs(verticalOffset));
+            if (Math.abs(verticalOffset) >= parallaxHeight) {
+                tab.setVisibility(View.VISIBLE);
+            } else {
+                tab.setVisibility(View.GONE);
             }
         });
 
         customPagerContainer = findViewById(R.id.pager_container);
-        customPagerContainer.setPageItemClickListener(new PageItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                pager.setCurrentItem(position);
-            }
-        });
+        customPagerContainer.setPageItemClickListener((view, position) -> pager.setCurrentItem(position));
 
         tab = findViewById(R.id.tab);
 
@@ -148,7 +163,6 @@ public class YoutubePLayListerActivity extends AppCompatActivity {
 
 
         pager = findViewById(R.id.pager);
-
         listPagerAdapter = new MyListPagerAdapter(
                 getSupportFragmentManager(), new ArrayList<PlayListItem>());
 

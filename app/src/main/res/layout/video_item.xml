@@ -1,54 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/cover_pager_height"
+    android:layout_height="260dp"
     android:layout_marginBottom="8dp"
     android:layout_marginEnd="16dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     android:layout_marginStart="16dp"
     android:layout_marginTop="8dp">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="260dp"
+    >
 
-    <ImageView
-        android:id="@+id/ivThumbVideo"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/cover_pager_height"
-        android:contentDescription="@string/video_thumbnail"
-        android:scaleType="centerCrop"
-        android:src="@drawable/active_abbu"/>
+        <ImageView
+            android:id="@+id/ivThumbVideo"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:contentDescription="@string/video_thumbnail"
+            android:scaleType="centerCrop"
+            android:src="@drawable/active_abbu"/>
 
-    <TextView
-        android:id="@+id/tvNameVideo"
-        android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_gravity="bottom"
-        android:background="@color/black_54_percent"
-        android:ellipsize="end"
-        android:gravity="start"
-        android:maxLines="1"
-        android:paddingBottom="8dp"
-        android:paddingEnd="100dp"
-        android:paddingLeft="16dp"
-        android:paddingRight="100dp"
-        android:paddingStart="16dp"
-        android:paddingTop="8dp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="15sp" />
+        <TextView
+            android:id="@+id/tvNameVideo"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="bottom"
+            android:background="@color/mat_bg_color"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:paddingBottom="8dp"
+            android:paddingEnd="100dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="100dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:layout_below="@+id/ivThumbVideo"/>
 
-    <TextView
-        android:id="@+id/tvTimeVideo"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        android:layout_gravity="bottom|end"
-        android:background="@color/black_20_percent"
-        android:ellipsize="end"
-        android:gravity="start"
-        android:maxLines="1"
-        android:padding="8dp"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/tvTimeVideo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@color/black_40_percent"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/app_name"
+            android:textColor="@color/mat_bg_color"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+</RelativeLayout>
 
 </FrameLayout>

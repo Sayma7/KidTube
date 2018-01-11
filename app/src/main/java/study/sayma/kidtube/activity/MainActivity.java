@@ -12,21 +12,27 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +62,10 @@ import java.util.List;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 import study.sayma.kidtube.R;
+import study.sayma.kidtube.adapters.VideoAdapter;
+import study.sayma.kidtube.models.PlayListItem;
 import study.sayma.kidtube.models.VideoItem;
+import study.sayma.kidtube.services.FloatingPlayerService;
 import study.sayma.kidtube.utils.U;
 
 public class MainActivity extends YouTubeBaseActivity implements EasyPermissions.PermissionCallbacks,
@@ -73,20 +82,22 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
     private static final String BUTTON_TEXT = "Call YouTube Data API";
     private static final String PREF_ACCOUNT_NAME = "accountName";
     private static final String[] SCOPES = {YouTubeScopes.YOUTUBE_READONLY};
-    private static YouTubePlayer player;
-    GoogleAccountCredential mCredential;
+    private static final int REQ_CODE_DRAW_OVER_OTHER_APP_PERM = 189;
     ProgressDialog mProgress;
+    private GoogleAccountCredential mCredential;
+    private YouTubePlayer player;
     private YouTubePlayerView playerView;
     private boolean isFullScreen;
     private Handler seekHandler;
     private SeekBar seekBar;
-    private TextView tvCur, tvLast;
+    private TextView tvCur, videoName, tvLast;
     private boolean isActivityVisible;
     private RelativeLayout rlControlHolder;
     private boolean isClassLocked;
     private int totalLength;
     private TextView mOutputText;
     private Button mCallApiButton;
+    private Switch autoPlay;
 
     private Runnable seekRunner = new Runnable() {
         @Override
@@ -152,7 +163,6 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
                 // I recommend reporting this problem so that you can update the code
                 // in the try branch: direct access is more efficient than searching for it
             }
-
             int visibility = isBuffering ? View.VISIBLE : View.INVISIBLE;
             if (progressBar != null) {
                 progressBar.setVisibility(visibility);
@@ -177,7 +187,6 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
             Log.d(TAG, "Youtube video onLoaded : " + s);
             showControls(true);
         }
-
 
         @Override
         public void onAdStarted() {
@@ -234,7 +243,7 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         switch (v.getId()) {
             case R.id.btnPlay:
                 if (null != player && !player.isPlaying())
-                    player.play();
+                    playVideo();
                 break;
             case R.drawable.btn_pause:
                 if (null != player && player.isPlaying())
@@ -278,59 +287,63 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
     }
 
     private void showControls(boolean isToShow) {
-        if (rlControlHolder == null)
+
+        if (rlControlHolder == null) {
             rlControlHolder = findViewById(R.id.rl_control_holder);
+        }
         if (!isToShow) {
             if (rlControlHolder.getVisibility() == View.VISIBLE)
                 // U.collapse(rlControlHolder);
+            {
                 rlControlHolder.setVisibility(View.GONE);
+            }
             return;
         }
         if (rlControlHolder.getVisibility() != View.VISIBLE)
             // U.expand(rlControlHolder);
+        {
             rlControlHolder.setVisibility(View.VISIBLE);
+        }
 
         final ImageView btnPlay = findViewById(R.id.btnPlay);
-        btnPlay.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (player == null)
-                    return;
-                if (player.isPlaying()) {
-                    pauseVideo(btnPlay);
-                } else player.play();
+        btnPlay.setOnClickListener(v -> {
+
+            if (player != null && player.isPlaying()) {
+                pauseVideo(btnPlay);
             }
-        });/*
+            else {
+                player.play();
+            }
+        });
         ImageView btnNext = findViewById(R.id.btnNextPlayer);
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
+        btnNext.setOnClickListener(v -> {
+            if (player != null) {
                 player.seekRelativeMillis(-10 * 1000);
             }
         });
         ImageView btnPrevious = findViewById(R.id.btnPreviousPlayer);
-        btnPrevious.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
+        btnPrevious.setOnClickListener(v -> {
+            if (player != null) {
                 player.seekRelativeMillis(10 * 1000);
             }
         });
         ImageView btnReplay = findViewById(R.id.btnReplayPlayer);
-        btnReplay.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v)
-            {
+        btnReplay.setOnClickListener(v -> {
+            if (player != null) {
                 player.seekToMillis(0);
             }
-        });*/
+        });
         ImageView btnFullScreen = findViewById(R.id.btnFullScreenPlayer);
-        btnFullScreen.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (U.isDevicePortrait(getResources()))
-                    setFullscreen(true);
-                else
-                    setFullscreen(false);
+        btnFullScreen.setOnClickListener(v -> {
+
+            if (U.isDevicePortrait(getResources())) {
+                setFullscreen(true);
+            }
+            else {
+                setFullscreen(false);
             }
         });
-        configureSeekBar();
+    configureSeekBar();
     }
 
     private void configureSeekBar() {
@@ -353,10 +366,12 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
+
             }
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
         runSeekChanger();
@@ -382,11 +397,12 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         super.onConfigurationChanged(newConfig);
         this.isFullScreen = !U.isDevicePortrait(getResources());
     }
-
     void openYoutubeSampleActivity() {
         Intent intent = new Intent(this, YoutubePLayListerActivity.class);
         startActivity(intent);
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -413,34 +429,103 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         // Initialize credentials and service object.
         mCredential = GoogleAccountCredential.usingOAuth2(getApplicationContext(), Arrays.asList(SCOPES))
                 .setBackOff(new ExponentialBackOff());
-        findViewById(R.id.btnPlay).setOnClickListener(this);
-
         showControls(true);
-        rlControlHolder.setVisibility(View.VISIBLE);
+        /*setupVideoHolder();*/
+        rlControlHolder = findViewById(R.id.rl_control_holder);
+        tvCur = findViewById(R.id.tvCurrentTime);
+        tvLast = findViewById(R.id.tvTotalTime);
+        findViewById(R.id.btnPlay).setOnClickListener(this);
+        findViewById(R.id.btnNextPlayer).setOnClickListener(this);
         seekBar = findViewById(R.id.seekBarVideo);
+        findViewById(R.id.seekBarVideo).setOnClickListener(this);
         seekHandler = new Handler();
+        TextView videoName = findViewById(R.id.tvVideo);
+        if (videoName != null) videoName.setText(video.getName());
+        /*autoPlay = findViewById(R.id.swAutoPlay);*/
+        View b = findViewById(R.id.btnScreenLock);
+        if (b != null) b.setOnClickListener(this::playLockedVideo);
+    }
 
+    /*private void showName(boolean isToShowName){
+        if (isToShowName && !isFullScreen){
+            TextView videoName = findViewById(R.id.tvVideo);
+
+        }
+        else if (isFullScreen){
+            showName(false);
+        }
+    }*/
+   /* private ArrayList<VideoItem> videoList = new ArrayList<>();
+
+    private void setupVideoHolder(){
+
+        RecyclerView rv = findViewById(R.id.recycler_view);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        rv.setLayoutManager(llm);
+        VideoAdapter va = new VideoAdapter(this, videoList );
+        rv.setAdapter(va);
+    }*/
+
+    /*public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        Toast.makeText(this, "Video Autoplay " + (isChecked ? "On" : "Off"), Toast.LENGTH_SHORT).show();
+        if (isChecked)
+        {
+            if (getIntent().hasExtra("videoList")){
+                videoList =(PlayListItem) getIntent().getSerializableExtra("videoList");
+                if (videoList == null){
+                    finish(); return;
+                }
+                else {
+                    finish(); return;
+                }
+            }
+            if (videoList != null) player.cueVideo(videoList.getId());
+        }
+
+        //do stuff when Switch is ON
+    }*/
+    private void playLockedVideo(View v) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
+            //If the draw over permission is not available open the settings screen
+            // to grant the permission.
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION,
+                    Uri.parse("package:" + getPackageName()));
+            startActivityForResult(intent, REQ_CODE_DRAW_OVER_OTHER_APP_PERM);
+        } else {
+            Intent intent = new Intent(MainActivity.this, FloatingPlayerService.class);
+            intent.putExtra("video", video);
+            if (player != null)
+                intent.putExtra("time", player.getCurrentTimeMillis());
+            startService(intent);
+            finish();
+        }
     }
 
     @Override
-    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player, boolean wasRestored) {
-
+    public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer ytPlayer, boolean wasRestored) {
+        this.player = ytPlayer;
         player.setPlayerStateChangeListener(playerStateChangeListener);
         player.setPlaybackEventListener(playbackEventListener);
-
-        if (player == null) return;
 
         /* start buffering */
         if (!wasRestored) {
             player.cueVideo(video.getId());
-        }
 
+        }/*
+        else if(player.getCurrentTimeMillis() == player.getDurationMillis()) {
+            onCheckedChanged(autoPlay, true);
+        }*/
+        else
+            playVideo();
         player.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);
     }
 
     @Override
     public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
         Toast.makeText(this, "Failed to initialize.", Toast.LENGTH_SHORT).show();
+        finish();
     }
 
     private ProgressBar findProgressBar(View view) {
@@ -522,6 +607,19 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
     @Override
     protected void onActivityResult(
             int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQ_CODE_DRAW_OVER_OTHER_APP_PERM && resultCode == RESULT_OK) {
+            //Check if the permission is granted or not.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
+                    && Settings.canDrawOverlays(this)) {
+                playLockedVideo(null);
+            } else { //Permission is not available
+                Toast.makeText(this,
+                        "Draw over other app permission not available. Closing the player",
+                        Toast.LENGTH_SHORT).show();
+                finish();
+            }
+            return;
+        }
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case REQUEST_GOOGLE_PLAY_SERVICES:

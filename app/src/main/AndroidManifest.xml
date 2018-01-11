@@ -5,6 +5,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -21,6 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.MainActivity" />
+
+        <service android:name=".services.MyLocationService"
+            android:exported="false" />
+        <service android:name=".services.FloatingPlayerService" />
     </application>
 
 </manifest>

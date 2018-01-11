@@ -2,6 +2,7 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true">
@@ -11,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/cover_pager_height"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsing_toolbar"
@@ -63,6 +65,15 @@
         android:layout_gravity="center"
         android:background="@drawable/circle_white"
         android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/btnSearch"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_gravity="start|bottom"
+        android:layout_margin="16dp"
+        android:background="@drawable/search"
+        android:padding="16dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabPlayAll"

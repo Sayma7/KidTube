@@ -51,10 +51,34 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "            \"length\" : 168\n" +
                 "          },\n" +
                 "          {\n" +
+                "            \"id\" : \"-FtfvTj_1aQ\",\n" +
+                "            \"name\" : \"Snowman Finger Family 3D Nursery Rhymes Baby Songs\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/-FtfvTj_1aQ/mqdefault.jpg\",\n" +
+                "            \"length\" : 60\n" +
+                "          },\n" +
+                "          {\n" +
+                "            \"id\" : \"uLACozcEe7I\",\n" +
+                "            \"name\" : \"Frosty The Snowman | Christmas Songs\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/mGAYzlqj-aE/mqdefault.jpg\",\n" +
+                "            \"length\" : 247\n" +
+                "          },\n" +
+                "          {\n" +
                 "            \"id\" : \"mGAYzlqj-aE\",\n" +
                 "            \"name\" : \"S-A-N-T-A\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/mGAYzlqj-aE/mqdefault.jpg\",\n" +
                 "            \"length\" : 169\n" +
+                "          },\n" +
+                "          {\n" +
+                "            \"id\" : \"cHqfk5lMw-E\",\n" +
+                "            \"name\" : \"In the Name of Allah\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/cHqfk5lMw-E/mqdefault.jpg\",\n" +
+                "            \"length\" : 294\n" +
+                "          },\n" +
+                "          {\n" +
+                "            \"id\" : \"F1fp_MoEewM\",\n" +
+                "            \"name\" : \"If you’re happy and you know it | Kids Songs\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/F1fp_MoEewM/mqdefault.jpg\",\n" +
+                "            \"length\" : 3802\n" +
                 "          },\n" +
                 "          {\n" +
                 "            \"id\" : \"eQ34DSTjsLQ\",\n" +
@@ -125,6 +149,12 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "            \"length\" : 1854\n" +
                 "          },\n" +
                 "           {\n" +
+                "              \"id\" : \"rYz_nYMqGOY\",\n" +
+                "            \"name\" : \"Rain Rain Go Away ( Come Again )\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/rYz_nYMqGOY/mqdefault.jpg\",\n" +
+                "            \"length\" : 148\n" +
+                "          },\n" +
+                "           {\n" +
                 "              \"id\" : \"PHofsaaie0A\",\n" +
                 "            \"name\" : \"One Little Finger\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/PHofsaaie0A/mqdefault.jpg\",\n" +
@@ -150,19 +180,19 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "           {\n" +
                 "              \"id\" : \"rgVnym9fSK4\",\n" +
-                "            \"name\" : \"Three Little Kittens Nursery Rhymes for Babies\",\n" +
+                "            \"name\" : \"Three Little Kittens - Nursery Rhymes\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/rgVnym9fSK4/mqdefault.jpg\",\n" +
                 "            \"length\" : 3171\n" +
                 "          },\n" +
                 "           {\n" +
                 "              \"id\" : \"JTIXGdsM73M\",\n" +
-                "            \"name\" : \"Learn Colors, Numbers and ABCs. ABC Songs for Kids. Alphabet Song. Nursery Rhymes\",\n" +
+                "            \"name\" : \"Learn Colors, Numbers and ABCs - ABC Songs for Kids - Alphabet Song - Nursery Rhymes\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/JTIXGdsM73M/mqdefault.jpg\",\n" +
                 "            \"length\" : 4375\n" +
                 "          },\n" +
                 "           {\n" +
                 "              \"id\" : \"vQ7yj1yv7_4\",\n" +
-                "            \"name\" : \"Baby Kitten Care | Kids Songs collection & Nursery Rhymes\",\n" +
+                "            \"name\" : \"Baby Kitten Care - Nursery Rhymes\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/vQ7yj1yv7_4/mqdefault.jpg\",\n" +
                 "            \"length\" : 1203\n" +
                 "          },\n" +
@@ -171,12 +201,6 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "            \"name\" : \"Johny Johny Yes Papa\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/u-mT4GGtgBc/mqdefault.jpg\",\n" +
                 "            \"length\" : 154\n" +
-                "          },\n" +
-                "           {\n" +
-                "              \"id\" : \"rYz_nYMqGOY\",\n" +
-                "            \"name\" : \"Rain Rain Go Away ( Come Again )\",\n" +
-                "            \"thumb\" : \"https://i.ytimg.com/vi/rYz_nYMqGOY/mqdefault.jpg\",\n" +
-                "            \"length\" : 148\n" +
                 "          },\n" +
                 "           {\n" +
                 "              \"id\" : \"LFrKYjrIDs8\",\n" +
@@ -192,6 +216,24 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "        \"thumb\" : \"https://i.ytimg.com/vi/seZN7oCRYa0/mqdefault.jpg\",\n" +
                 "        \"videos\" : [\n" +
                 "          {\n" +
+                "              \"id\" : \"FiRiXgU3Mfo\",\n" +
+                "            \"name\" : \"Bob The Train Phonics Song Learn ABC Alphabet\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/FiRiXgU3Mfo/mqdefault.jpg\",\n" +
+                "            \"length\" : 3468\n" +
+                "          },\n" +
+                "          {\n" +
+                "              \"id\" : \"g5seb1VZFaI\",\n" +
+                "            \"name\" : \"ABC Song | Learning Alphabets\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/g5seb1VZFaI/mqdefault.jpg\",\n" +
+                "            \"length\" : 3321\n" +
+                "          },\n" +
+                "          {\n" +
+                "              \"id\" : \"QWcj9APpZi8\",\n" +
+                "            \"name\" : \"Phonics Song with TWO Words - A For Apple\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/QWcj9APpZi8/mqdefault.jpg\",\n" +
+                "            \"length\" : 1918\n" +
+                "          },\n" +
+                "          {\n" +
                 "              \"id\" : \"hq3yfQnllfQ\",\n" +
                 "            \"name\" : \"Phonics Song with TWO Words - A For Apple\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/hq3yfQnllfQ/mqdefault.jpg\",\n" +
@@ -199,31 +241,31 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"kV189Or1s2M\",\n" +
-                "            \"name\" : \"learning alphabets for kids | Phonetics for kids\",\n" +
+                "            \"name\" : \"Learning Alphabets | Phonetics for kids\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/kV189Or1s2M/mqdefault.jpg\",\n" +
                 "            \"length\" : 1423\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"_UR-l3QI2nE\",\n" +
-                "            \"name\" : \"ABC SONG | ABC Songs for Children - 13 Alphabet Songs\",\n" +
+                "            \"name\" : \"ABC Songs - 13 Alphabet Songs\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/_UR-l3QI2nE/mqdefault.jpg\",\n" +
                 "            \"length\" : 3051\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"yGq8_qDeviY\",\n" +
-                "            \"name\" : \"Letters For Toddlers | Alphabets For Kids\",\n" +
+                "            \"name\" : \"Letters For Toddlers\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/yGq8_qDeviY/mqdefault.jpg\",\n" +
                 "            \"length\" : 543\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"e0-UMSk9_R8\",\n" +
-                "            \"name\" : \"Play and Learn ALPHABETS with Play Doh for Children\",\n" +
+                "            \"name\" : \"Play and Learn ALPHABETS with Play Doh\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/e0-UMSk9_R8/mqdefault.jpg\",\n" +
                 "            \"length\" : 1330\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"JTIXGdsM73M\",\n" +
-                "            \"name\" : \"Learn Colors, Numbers and ABCs. ABC Songs for Kids. Alphabet Song.\",\n" +
+                "            \"name\" : \"Learn Colors, Numbers and ABCs - Alphabet Song\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/JTIXGdsM73M/mqdefault.jpg\",\n" +
                 "            \"length\" : 4415\n" +
                 "          },\n" +
@@ -235,19 +277,19 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"HaQZw9Sxlu8\",\n" +
-                "            \"name\" : \"Best ABC Alphabet Song\",\n" +
+                "            \"name\" : \"Best ABC Alphabet Songs\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/HaQZw9Sxlu8/mqdefault.jpg\",\n" +
                 "            \"length\" : 185\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"66c-DS_0Bdw\",\n" +
-                "            \"name\" : \"ABCD Song | ABC Song for children | ABCD Alphabet Song\",\n" +
+                "            \"name\" : \"ABCD Alphabet Songs\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/66c-DS_0Bdw/mqdefault.jpg\",\n" +
                 "            \"length\" : 71\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"hxvYjqPnROU\",\n" +
-                "            \"name\" : \"Alphabet songs | Phonics Songs | ABC Song for children - 3D Animation\",\n" +
+                "            \"name\" : \"Alphabet songs | Phonics Songs | ABC Song - 3D Animation\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/hxvYjqPnROU/mqdefault.jpg\",\n" +
                 "            \"length\" : 129\n" +
                 "          },\n" +
@@ -606,13 +648,13 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"CCk0Zw-kXuI\",\n" +
-                "            \"name\" : \"Addition + 1 Kids Song | Counting and Numbers\",\n" +
+                "            \"name\" : \"Addition + 1 Song | Counting and Numbers\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/CCk0Zw-kXuI/mqdefault.jpg\",\n" +
                 "            \"length\" : 105\n" +
                 "          },\n" +
                 "          {\n" +
                 "             \"id\" : \"diMJIlv-4N0\",\n" +
-                "            \"name\" : \"Count to 10 | Counting Song for Kids\",\n" +
+                "            \"name\" : \"Count to 10 | Counting Song\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/diMJIlv-4N0/mqdefault.jpg\",\n" +
                 "            \"length\" : 123\n" +
                 "          },\n" +
@@ -631,7 +673,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "        \"videos\" : [\n" +
                 "          {\n" +
                 "              \"id\" : \"Bf8V7cF8t48\",\n" +
-                "            \"name\" : \"Things To Know - Kids Video | Basic Science For Kids | Good To Know\",\n" +
+                "            \"name\" : \"Things To Know - Basic Science | Good To Know\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/Bf8V7cF8t48/mqdefault.jpg\",\n" +
                 "            \"length\" : 719\n" +
                 "          },\n" +
@@ -698,19 +740,19 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "        \"videos\" : [\n" +
                 "          {\n" +
                 "              \"id\" : \"hEzER6cfu9k\",\n" +
-                "            \"name\" : \"Adventure Kids 1 - Kids Nerf War - Operation Sister Rescue\",\n" +
+                "            \"name\" : \"Nerf War - Operation Sister Rescue\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/hEzER6cfu9k/mqdefault.jpg\",\n" +
                 "            \"length\" : 316\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"-JryyTDc2rU\",\n" +
-                "            \"name\" : \"The Adventure Of Tom Sawyer - Bedtime Story For Kids || Moral Stories\",\n" +
+                "            \"name\" : \"The Adventure Of Tom Sawyer\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/-JryyTDc2rU/mqdefault.jpg\",\n" +
                 "            \"length\" : 874\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"722EXLTigpg\",\n" +
-                "            \"name\" : \"Adventure Kids 2 - Operation Animal Rescue\",\n" +
+                "            \"name\" : \"Operation Animal Rescue\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/722EXLTigpg/mqdefault.jpg\",\n" +
                 "            \"length\" : 413\n" +
                 "          },\n" +
@@ -722,7 +764,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"McdH8-N1UKQ\",\n" +
-                "            \"name\" : \"Day at Forest Adventure Kids Course with Lucas!\",\n" +
+                "            \"name\" : \"Day at Forest - Kids Course with Lucas!\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/McdH8-N1UKQ/mqdefault.jpg\",\n" +
                 "            \"length\" : 226\n" +
                 "          },\n" +
@@ -747,7 +789,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "        \"videos\" : [\n" +
                 "          {\n" +
                 "              \"id\" : \"U9Q6V7xquQo\",\n" +
-                "            \"name\" : \"Best Games for Kids - Ava the 3D Doll iPad Gameplay HD\",\n" +
+                "            \"name\" : \"Ava the 3D Doll iPad Gameplay \",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/U9Q6V7xquQo/mqdefault.jpg\",\n" +
                 "            \"length\" : 852\n" +
                 "          },\n" +
@@ -759,7 +801,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"0OUKzFGXt4A\",\n" +
-                "            \"name\" : \"Fun Kids Color Learning Game - Kids Learn Clean Up, Make Up Wash Dishes - Sweet Baby Girl Clean Up\",\n" +
+                "            \"name\" : \"Sweet Baby Girl Clean Up\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/0OUKzFGXt4A/mqdefault.jpg\",\n" +
                 "            \"length\" : 1391\n" +
                 "          },\n" +
@@ -771,13 +813,13 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"8uoZzj9vEww\",\n" +
-                "            \"name\" : \"Learn Colors for Children with Baby Game Play Wooden Toy Funny Clown Tumbling\",\n" +
+                "            \"name\" : \"Wooden Toy Funny Clown Tumbling\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/8uoZzj9vEww/mqdefault.jpg\",\n" +
                 "            \"length\" : 1102\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"W5YwIWTzXiU\",\n" +
-                "            \"name\" : \"Talking Tom and Friends 2 / Cartoon Games\",\n" +
+                "            \"name\" : \"Talking Tom and Friends 2\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/W5YwIWTzXiU/mqdefault.jpg\",\n" +
                 "            \"length\" : 826\n" +
                 "          },\n" +
@@ -801,7 +843,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"92-kIcS-8uI\",\n" +
-                "            \"name\" : \"Kids Learn Safety | Lift Safety For Kids\",\n" +
+                "            \"name\" : \"Lift Safety For Kids\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/92-kIcS-8uI/mqdefault.jpg\",\n" +
                 "            \"length\" : 876\n" +
                 "          }\n" +
@@ -814,19 +856,13 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "        \"videos\" : [\n" +
                 "          {\n" +
                 "              \"id\" : \"aVPmaB41w3g\",\n" +
-                "            \"name\" : \"Tom And Jerry English Episodes - The Cat\\'s Me Ouch\",\n" +
+                "            \"name\" : \"Tom And Jerry - The Cat\\'s Me Ouch\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/aVPmaB41w3g/mqdefault.jpg\",\n" +
                 "            \"length\" : 188\n" +
                 "          },\n" +
                 "          {\n" +
-                "              \"id\" : \"RjT9Vkds_e4\",\n" +
-                "            \"name\" : \"Charlie Chaplin - Love Burger\",\n" +
-                "            \"thumb\" : \"https://i.ytimg.com/vi/RjT9Vkds_e4/mqdefault.jpg\",\n" +
-                "            \"length\" : 358\n" +
-                "          },\n" +
-                "          {\n" +
                 "              \"id\" : \"wQb-rQMk-Hc\",\n" +
-                "            \"name\" : \"Tom and Jerry | Episode 57 | Jerry\\'s Cousin (1951)\",\n" +
+                "            \"name\" : \"Tom and Jerry - Jerry\\'s Cousin (1951)\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/wQb-rQMk-Hc/mqdefault.jpg\",\n" +
                 "            \"length\" : 255\n" +
                 "          },\n" +
@@ -837,20 +873,20 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "            \"length\" : 348\n" +
                 "          },\n" +
                 "          {\n" +
-                "              \"id\" : \"4pEsb1pOEUw\",\n" +
-                "            \"name\" : \"Tom And Jerry English Episodes - Jerry Cousin\",\n" +
-                "            \"thumb\" : \"https://i.ytimg.com/vi/4pEsb1pOEUw/mqdefault.jpg\",\n" +
-                "            \"length\" : 770\n" +
-                "          },\n" +
-                "          {\n" +
                 "              \"id\" : \"vbkE8WicM5A\",\n" +
-                "            \"name\" : \"Tom And Jerry English Episodes - Baby Puss\",\n" +
+                "            \"name\" : \"Tom And Jerry - Baby Puss\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/vbkE8WicM5A/mqdefault.jpg\",\n" +
                 "            \"length\" : 180\n" +
                 "          },\n" +
                 "          {\n" +
+                "              \"id\" : \"PsWnFMVvFlg\",\n" +
+                "            \"name\" : \"Charlie Chaplin - Royal Shampooing\",\n" +
+                "            \"thumb\" : \"https://i.ytimg.com/vi/PsWnFMVvFlg/mqdefault.jpg\",\n" +
+                "            \"length\" : 345\n" +
+                "          },\n" +
+                "          {\n" +
                 "              \"id\" : \"PQ87jvuW8n4\",\n" +
-                "            \"name\" : \"Tom And Jerry / Tiger Cat \",\n" +
+                "            \"name\" : \"Tom And Jerry - Tiger Cat \",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/PQ87jvuW8n4/mqdefault.jpg\",\n" +
                 "            \"length\" : 176\n" +
                 "          },\n" +
@@ -868,7 +904,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"hmm_ANty9TQ\",\n" +
-                "            \"name\" : \"What is in Vending Machine? | Baby Panda\\'s Cool Car\",\n" +
+                "            \"name\" : \"What\\'s in Vending Machine? | Baby Panda\\'s Cool Car\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/hmm_ANty9TQ/mqdefault.jpg\",\n" +
                 "            \"length\" : 1474\n" +
                 "          },\n" +
@@ -886,7 +922,7 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"eKdffw2oFps\",\n" +
-                "            \"name\" : \"Funny Animated cartoon for Kids | Cartoon Caillou | Caillou\\'s grounded\",\n" +
+                "            \"name\" : \"Caillou\\'s grounded\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/eKdffw2oFps/mqdefault.jpg\",\n" +
                 "            \"length\" : 4253\n" +
                 "          },\n" +
@@ -904,21 +940,15 @@ public class FileGetter extends AsyncTask<Void, Void, String> {
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"mnvPDXfeQ_8\",\n" +
-                "            \"name\" : \"Charlie Chaplin ᴴᴰ Mega Episode [13]\",\n" +
+                "            \"name\" : \"Charlie Chaplin Mega Episode [13]\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/mnvPDXfeQ_8/mqdefault.jpg\",\n" +
                 "            \"length\" : 2748\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"HmXQmGUwEDs\",\n" +
-                "            \"name\" : \"Charlie Chaplin - The Haunted Hous\",\n" +
+                "            \"name\" : \"Charlie Chaplin - The Haunted House\",\n" +
                 "            \"thumb\" : \"https://i.ytimg.com/vi/HmXQmGUwEDs/mqdefault.jpg\",\n" +
                 "            \"length\" : 363\n" +
-                "          },\n" +
-                "          {\n" +
-                "              \"id\" : \"PsWnFMVvFlg\",\n" +
-                "            \"name\" : \"Charlie Chaplin - Royal Shampooing\",\n" +
-                "            \"thumb\" : \"https://i.ytimg.com/vi/PsWnFMVvFlg/mqdefault.jpg\",\n" +
-                "            \"length\" : 345\n" +
                 "          },\n" +
                 "          {\n" +
                 "              \"id\" : \"eEMKcgwPGdo\",\n" +

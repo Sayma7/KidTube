@@ -43,14 +43,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoViewHolder> {
         holder.tvName.setText(vi.getName());
         holder.tvTime.setText(U.getSmallFormattedTime(vi.getLength()));
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, MainActivity.class);
-                intent.putExtra("video", vi);
-                context.startActivity(intent);
-                final String video_id = intent.getStringExtra("vi");
-            }
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, MainActivity.class);
+            intent.putExtra("video", vi);
+            context.startActivity(intent);
+            final String video_id = intent.getStringExtra("vi");
         });
     }
 

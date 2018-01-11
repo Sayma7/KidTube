@@ -7,9 +7,6 @@ import android.widget.TextView;
 
 import study.sayma.kidtube.R;
 
-/**
- * Created by Sayma on 12/27/2017.
- */
 
 public class VideoViewHolder extends RecyclerView.ViewHolder {
 

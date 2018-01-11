@@ -26,7 +26,8 @@
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:background="@color/light_ash">
 
             <TextView
                 android:id="@+id/tvTotalTime"
@@ -35,6 +36,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:padding="4dp"
+                android:textColor="@color/black_87_percent"
                 android:text="@string/tvTotalTime" />
 
             <SeekBar
@@ -43,8 +45,8 @@
                 android:layout_height="wrap_content"
                 android:layout_toLeftOf="@+id/tvCurrentTime"
                 android:layout_toRightOf="@+id/tvTotalTime"
-                android:background="@color/light_ash"
                 android:scrollbarSize="54dp"
+                android:padding="4dp"
                 android:layout_toEndOf="@+id/tvTotalTime"
                 android:layout_toStartOf="@+id/tvCurrentTime" />
 
@@ -55,6 +57,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:padding="4dp"
+                android:textColor="@color/black_87_percent"
                 android:text="@string/tvCurrentTime" />
 
         </RelativeLayout>
@@ -67,44 +70,47 @@
             android:layout_marginRight="8dp"
             android:layout_marginStart="8dp"
             android:id="@+id/rl_control_holder"
-            android:background="@color/GrayLight"
-            android:padding="8dp">
-
-            <ImageView
-                android:id="@+id/btnPreviousPlayer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:padding="4dp"
-                android:src="@drawable/ic_skip_previous_brown_100_24dp" />
-
-            <ImageView
-                android:id="@+id/btnPlay"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/btnPreviousPlayer"
-                android:layout_toRightOf="@+id/btnPreviousPlayer"
-                android:padding="8dp"
-                android:background="@drawable/ic_play_circle_outline_red_400_24dp" />
+            android:background="@color/light_ash">
 
             <ImageView
                 android:id="@+id/btnNextPlayer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:padding="8dp"
+                android:src="@drawable/ic_ic_replay_10_white_24dp" />
+
+            <ImageView
+                android:id="@+id/btnPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/btnNextPlayer"
+                android:layout_toRightOf="@+id/btnNextPlayer"
+                android:layout_centerVertical="true"
+                android:padding="8dp"
+                android:background="@drawable/ic_play_circle_outline_red_400_24dp" />
+
+            <ImageView
+                android:id="@+id/btnPreviousPlayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_toEndOf="@+id/btnPlay"
                 android:layout_toRightOf="@+id/btnPlay"
+                android:layout_centerVertical="true"
                 android:padding="8dp"
-                android:src="@drawable/ic_skip_next_brown_100_24dp" />
+                android:src="@drawable/ic_ic_forward_10_white_24dp" />
 
             <ImageView
                 android:id="@+id/btnReplayPlayer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toEndOf="@+id/btnNextPlayer"
-                android:layout_toRightOf="@+id/btnNextPlayer"
+                android:layout_toLeftOf="@+id/btnFullScreenPlayer"
+                android:layout_toStartOf="@+id/btnFullScreenPlayer"
+                android:src="@drawable/ic_ic_replay_brown_200_24dp"
                 android:padding="8dp"
-                android:src="@drawable/ic_replay_brown_200_24dp" />
+                android:layout_centerVertical="true" />
 
             <!--<ImageView
                 android:id="@+id/btnVolumePlayer"
@@ -113,6 +119,7 @@
                 android:layout_toEndOf="@+id/btnReplayPlayer"
                 android:layout_toRightOf="@+id/btnReplayPlayer"
                 android:padding="8dp"
+                android:layout_centerVertical="true"
                 android:src="@drawable/ic_volume_up_brown_200_24dp" />-->
 
             <ImageView
@@ -123,6 +130,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_gravity="end"
                 android:padding="8dp"
+                android:layout_centerVertical="true"
                 android:src="@drawable/fullscreen" />
 
         </RelativeLayout>
@@ -137,12 +145,13 @@
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/tvVideoName"
+                android:id="@+id/tvVideo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:padding="4dp"
+                android:textColor="@color/black_87_percent"
                 android:textSize="16sp" />
 
             <Switch
