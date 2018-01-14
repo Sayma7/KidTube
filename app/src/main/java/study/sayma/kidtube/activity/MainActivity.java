@@ -98,6 +98,7 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
     private TextView mOutputText;
     private Button mCallApiButton;
     private Switch autoPlay;
+    private PlayListItem plVideoList;
 
     private Runnable seekRunner = new Runnable() {
         @Override
@@ -198,6 +199,12 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
 
         @Override
         public void onVideoEnded() {
+            if(autoPlay!=null) {
+                Boolean autoPlayChecked = autoPlay.isChecked();
+                if (autoPlayChecked && player.hasNext()) {
+                    player.next();
+                }
+            }
         }
 
         @Override
@@ -441,20 +448,12 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         seekHandler = new Handler();
         TextView videoName = findViewById(R.id.tvVideo);
         if (videoName != null) videoName.setText(video.getName());
-        /*autoPlay = findViewById(R.id.swAutoPlay);*/
+        if(autoPlay != null) autoPlay = findViewById(R.id.swAutoPlay);
         View b = findViewById(R.id.btnScreenLock);
         if (b != null) b.setOnClickListener(this::playLockedVideo);
     }
 
-    /*private void showName(boolean isToShowName){
-        if (isToShowName && !isFullScreen){
-            TextView videoName = findViewById(R.id.tvVideo);
 
-        }
-        else if (isFullScreen){
-            showName(false);
-        }
-    }*/
    /* private ArrayList<VideoItem> videoList = new ArrayList<>();
 
     private void setupVideoHolder(){
@@ -466,26 +465,34 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         VideoAdapter va = new VideoAdapter(this, videoList );
         rv.setAdapter(va);
     }*/
+/*
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
-    /*public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+        if(!autoPlay.isChecked()){
+            isChecked = false;
+        }
         Toast.makeText(this, "Video Autoplay " + (isChecked ? "On" : "Off"), Toast.LENGTH_SHORT).show();
-        if (isChecked)
-        {
-            if (getIntent().hasExtra("videoList")){
-                videoList =(PlayListItem) getIntent().getSerializableExtra("videoList");
-                if (videoList == null){
-                    finish(); return;
-                }
-                else {
-                    finish(); return;
-                }
-            }
-            if (videoList != null) player.cueVideo(videoList.getId());
+
+        if(autoPlay!=null && player.getCurrentTimeMillis() == player.getDurationMillis()){
+            isChecked=true;
         }
 
-        //do stuff when Switch is ON
+            if (getIntent().hasExtra("plVideoList"))
+            {
+                plVideoList = (PlayListItem) getIntent().getSerializableExtra("plVideoList");
+                if (plVideoList == null)
+                {
+                    finish();
+                    return;
+                } else {
+                    finish();
+                    return;
+                }
+            }
+            if (plVideoList != null) player.next(); player.cuePlaylist(plVideoList.getId());
     }*/
+
     private void playLockedVideo(View v) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this)) {
             //If the draw over permission is not available open the settings screen
@@ -513,10 +520,7 @@ public class MainActivity extends YouTubeBaseActivity implements EasyPermissions
         if (!wasRestored) {
             player.cueVideo(video.getId());
 
-        }/*
-        else if(player.getCurrentTimeMillis() == player.getDurationMillis()) {
-            onCheckedChanged(autoPlay, true);
-        }*/
+        }
         else
             playVideo();
         player.setPlayerStyle(YouTubePlayer.PlayerStyle.CHROMELESS);

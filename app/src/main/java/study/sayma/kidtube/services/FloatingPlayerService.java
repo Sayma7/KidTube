@@ -106,12 +106,13 @@ public class FloatingPlayerService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        //Inflate the chat head layout we created
+        //Inflating the chat head layout we created
         LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         floatingWindow = null;
         if (inflater != null) {
             floatingWindow = inflater.inflate(R.layout.locked_player, null, false);
         }
+
 
         //Add the view to the window.
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
